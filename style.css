@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('mansoor.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    font-family: 'Outfit', sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    text-align: center;
+    background-color: rgba(138, 43, 226, 0.95);
+    color: white;
+    padding: 15px 0;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main {
+    background: rgba(48, 16, 88, 0.85);
+    /* Rich purple background */
+    backdrop-filter: blur(12px);
+    /* Sleek glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    /* Rounded corners */
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 360px;
+    max-width: 90%;
+    margin: auto;
+    /* Vertically and horizontally centered */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.main:hover {
+    transform: translateY(-5px);
+}
+
+.main input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.main input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.main input:focus {
+    border-color: #d8b4fe;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 12px rgba(216, 180, 254, 0.3);
+}
+
+.main button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #a855f7, #7c3aed);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+}
+
+.main button:hover {
+    background: linear-gradient(135deg, #c084fc, #8b5cf6);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+.main button:active {
+    transform: scale(0.98);
+}
+
+.main a {
+    height: 30%;
+    color: #d8b4fe;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+}
+
+.main a:hover {
+    color: #f3e8ff;
+    text-decoration: underline;
+}

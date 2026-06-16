@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 5 Cartoon Shows</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color:white;
+    min-height:100vh;
+}
+
+header{
+    text-align:center;
+    padding:30px;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(10px);
+}
+
+header h1{
+    font-size:3rem;
+    color:#facc15;
+    text-shadow:0 0 10px rgba(250,204,21,0.7);
+}
+
+header p{
+    margin-top:10px;
+    color:#ddd;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:40px auto;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.4);
+    transition:0.4s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 10px 25px rgba(250,204,21,0.5);
+}
+
+.card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h2{
+    color:#facc15;
+    margin-bottom:10px;
+}
+
+.rating{
+    color:#22c55e;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.card-content p{
+    color:#d1d5db;
+    line-height:1.6;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    background:#0f172a;
+    color:#ccc;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Cartoon Shows</h1>
+    <p>Childhood Favorites That Everyone Loves</p>
+</header>
+
+<div class="container">
+
+    <div class="cards">
+
+        <!-- Ben 10 -->
+        <div class="card">
+            <img src="ben10.jpg" alt="Ben 10">
+            <div class="card-content">
+                <h2>Ben 10</h2>
+                <div class="rating">⭐ Rating: 10/10</div>
+                <p>
+                    Ben Tennyson discovers the Omnitrix, a powerful device
+                    that allows him to transform into different alien heroes
+                    and protect the world from evil.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tom and Jerry -->
+        <div class="card">
+            <img src="ta.jpg" alt="Tom and Jerry">
+            <div class="card-content">
+                <h2>Tom and Jerry</h2>
+                <div class="rating">⭐ Rating: 9.0/10</div>
+                <p>
+                    The legendary cat-and-mouse duo entertain audiences
+                    with hilarious chases, clever tricks, and endless fun.
+                </p>
+            </div>
+        </div>
+
+        <!-- Jackie Chan Adventures -->
+        <div class="card">
+            <img src="jackiechan.jpg" alt="Jackie Chan Adventures">
+            <div class="card-content">
+                <h2>Jackie Chan Adventures</h2>
+                <div class="rating">⭐ Rating: 8.3/10</div>
+                <p>
+                    Jackie Chan and his team search for magical talismans
+                    while battling dark forces in exciting adventures.
+                </p>
+            </div>
+        </div>
+
+        <!-- Transformers -->
+        <div class="card">
+            <img src="transformers.jpg" alt="Transformers">
+            <div class="card-content">
+                <h2>Transformers</h2>
+                <div class="rating">⭐ Rating: 8.7/10</div>
+                <p>
+                    The Autobots and Decepticons wage epic battles while
+                    transforming between robots and vehicles to save or
+                    conquer worlds.
+                </p>
+            </div>
+        </div>
+
+        <!-- Oggy and the Cockroaches -->
+        <div class="card">
+            <img src="oac.jpg" alt="Oggy and the Cockroaches">
+            <div class="card-content">
+                <h2>Oggy and the Cockroaches</h2>
+                <div class="rating">⭐ Rating: 8.8/10</div>
+                <p>
+                    Oggy the cat constantly faces chaos caused by three
+                    mischievous cockroaches in this hilarious slapstick comedy.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© GOTEI STREAM | Designed  by Shardudeen & Abuthahir</p>
+</footer>
+
+</body>
+</html>

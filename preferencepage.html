@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chikkomflix - Preferences</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      background-image: url('db.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Same header as login page */
+    header {
+      width: 100%;
+      background-color: #1a6fd4;
+      padding: 18px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    /* Subtitle */
+    .subtitle {
+      color: white;
+      font-size: 18px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      font-weight: 600;
+    }
+
+    .subtitle2 {
+      color: #ccc;
+      font-size: 13px;
+      margin-bottom: 35px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+    }
+
+    /* Grid of 4 boxes */
+    .preference-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      padding: 0 20px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .pref-box {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 35px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      color: white;
+    }
+
+    .pref-box:hover {
+      background: rgba(26, 111, 212, 0.6);
+      border-color: #1a6fd4;
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(26, 111, 212, 0.5);
+    }
+
+    /* When selected */
+    .pref-box.selected {
+      background: rgba(26, 111, 212, 0.85);
+      border-color: white;
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(26, 111, 212, 0.7);
+    }
+
+    .pref-box .icon {
+      font-size: 42px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .pref-box .label {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: capitalize;
+    }
+
+    /* Checkmark shown when selected */
+    .pref-box .check {
+      display: none;
+      font-size: 18px;
+      margin-top: 8px;
+      color: #90EE90;
+    }
+
+    .pref-box.selected .check {
+      display: block;
+    }
+
+    /* Continue button */
+    .continue-btn {
+      margin-top: 35px;
+      padding: 14px 60px;
+      background: #1a6fd4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      letter-spacing: 0.5px;
+    }
+
+    .continue-btn:hover {
+      background: #155bb5;
+      transform: scale(1.03);
+    }
+
+    .continue-btn:disabled {
+      background: rgba(255,255,255,0.2);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .note {
+      color: #aaa;
+      font-size: 12px;
+      margin-top: 12px;
+      margin-bottom: 30px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Chikkomflix</h1>
+  </header>
+
+  <p class="subtitle">What do you enjoy watching?</p>
+  <p class="subtitle2">Select your preference (choose one)</p>
+
+  <div class="preference-grid">
+
+    <div class="pref-box" onclick="toggleSelect(this, 'anime')">
+      <span class="icon">⛩️</span>
+      <span class="label">Anime</span>
+      <span class="check">✔ Selected</span>
+    </div>
+
+    <div class="pref-box" onclick="toggleSelect(this, 'webseries')">
+      <span class="icon">📺</span>
+      <span class="label">Web Series</span>
+      <span class="check">✔ Selected</span>
+    </div>
+
+    <div class="pref-box" onclick="toggleSelect(this, 'movies')">
+      <span class="icon">🎬</span>
+      <span class="label">Movies</span>
+      <span class="check">✔ Selected</span>
+    </div>
+
+    <div class="pref-box" onclick="toggleSelect(this, 'cartoons')">
+      <span class="icon">🎨</span>
+      <span class="label">Cartoons</span>
+      <span class="check">✔ Selected</span>
+    </div>
+
+  </div>
+
+  <button class="continue-btn" id="continueBtn" 
+          onclick="savePreference()" disabled>
+    Continue
+  </button>
+  <p class="note">Select an option to continue</p>
+
+  <script>
+    // Holds the single selected category text string
+    let selectedCategory = "";
+
+    function toggleSelect(box, category) {
+      // Find if this specific box is already selected
+      const isAlreadySelected = box.classList.contains('selected');
+
+      // Clear out selection styling from ALL boxes
+      const allBoxes = document.querySelectorAll('.pref-box');
+      allBoxes.forEach(item => item.classList.remove('selected'));
+
+      if (isAlreadySelected) {
+        // If it was already selected, clicking it again completely unselects it
+        selectedCategory = "";
+      } else {
+        // Otherwise, make this the only selected box
+        box.classList.add('selected');
+        selectedCategory = category;
+      }
+
+      // Enable the button only if a category is selected
+      const btn = document.getElementById('continueBtn');
+      btn.disabled = selectedCategory === "";
+    }
+
+    function savePreference() {
+      if (selectedCategory === "") return;
+
+      // Save single choice to localStorage
+      localStorage.setItem('preferences', JSON.stringify([selectedCategory]));
+
+      // Single-choice target redirection logic
+      if (selectedCategory === 'anime') {
+        window.location.href = 'animepage.html';
+      } 
+      else if (selectedCategory === 'webseries') {
+        window.location.href = 'webseries.html';
+      } 
+      else if (selectedCategory === 'movies') {
+        window.location.href = 'movies.html';
+      } 
+      else if (selectedCategory === 'cartoons') {
+        window.location.href = 'cartoons.html';
+      }
+    }
+  </script>
+
+</body>
+</html>

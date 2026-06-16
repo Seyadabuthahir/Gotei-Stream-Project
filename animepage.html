@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Anime Showcase</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            color:white;
+            min-height:100vh;
+        }
+
+        header{
+            text-align:center;
+            padding:40px 20px;
+            background:rgba(0,0,0,0.5);
+            backdrop-filter:blur(10px);
+            box-shadow:0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        header h1{
+            font-size:3rem;
+            color:#f97316;
+            margin-bottom:10px;
+        }
+
+        header p{
+            color:#d1d5db;
+            font-size:1.1rem;
+        }
+
+        .container{
+            width:90%;
+            max-width:1300px;
+            margin:40px auto;
+        }
+
+        .anime-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:25px;
+        }
+
+        .anime-card{
+            background:#1e293b;
+            border-radius:15px;
+            overflow:hidden;
+            transition:0.4s;
+            box-shadow:0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .anime-card:hover{
+            transform:translateY(-10px) scale(1.03);
+            box-shadow:0 10px 25px rgba(249,115,22,0.5);
+        }
+
+        .anime-card img{
+            width:100%;
+            height:350px;
+            object-fit:cover;
+        }
+
+        .anime-content{
+            padding:20px;
+        }
+
+        .anime-content h2{
+            color:#f97316;
+            margin-bottom:10px;
+        }
+
+        .rating{
+            color:#22c55e;
+            font-weight:bold;
+            margin-bottom:10px;
+        }
+
+        .anime-content p{
+            color:#d1d5db;
+            line-height:1.6;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            margin-top:30px;
+            background:#0f172a;
+            color:#94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔥 Top 5 Anime Series</h1>
+    <p>The Greatest Anime Adventures of All Time</p>
+</header>
+
+<div class="container">
+
+    <div class="anime-grid">
+
+        <!-- Dragon Ball Super -->
+        <div class="anime-card">
+            <img src="dbz.jpg" alt="Dragon Ball Super">
+            <div class="anime-content">
+                <h2>Dragon Ball Super</h2>
+                <div class="rating">⭐ 8.5/10</div>
+                <p>
+                    Goku and his friends face powerful gods, universes,
+                    and warriors while pushing their limits beyond Super Saiyan.
+                </p>
+            </div>
+        </div>
+
+        <!-- Naruto -->
+        <div class="anime-card">
+            <img src="naruto.jpg" alt="Naruto">
+            <div class="anime-content">
+                <h2>Naruto</h2>
+                <div class="rating">⭐ 8.9/10</div>
+                <p>
+                    Naruto Uzumaki dreams of becoming Hokage while overcoming
+                    challenges, friendships, and powerful enemies.
+                </p>
+            </div>
+        </div>
+
+        <!-- One Piece -->
+        <div class="anime-card">
+            <img src="one piece.jpg" alt="One Piece">
+            <div class="anime-content">
+                <h2>One Piece</h2>
+                <div class="rating">⭐ 9.1/10</div>
+                <p>
+                    Monkey D. Luffy and the Straw Hat Pirates sail across
+                    the Grand Line searching for the legendary One Piece treasure.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bleach -->
+        <div class="anime-card">
+            <img src="bleach.jpg" alt="Bleach">
+            <div class="anime-content">
+                <h2>Bleach</h2>
+                <div class="rating">⭐ 8.7/10</div>
+                <p>
+                    Ichigo Kurosaki gains Soul Reaper powers and protects
+                    the world from evil spirits and powerful foes.
+                </p>
+            </div>
+        </div>
+
+        <!-- Attack on Titan -->
+        <div class="anime-card">
+            <img src="aot.jpg" alt="Attack on Titan">
+            <div class="anime-content">
+                <h2>Attack on Titan</h2>
+                <div class="rating">⭐ 9.2/10</div>
+                <p>
+                    Humanity fights for survival against gigantic Titans
+                    while uncovering dark secrets about their world.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Anime World | Top 5 Anime Showcase</p>
+</footer>
+
+</body>
+</html>
